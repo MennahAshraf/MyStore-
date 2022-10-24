@@ -1,0 +1,10 @@
+
+<app-nav-bar></app-nav-bar>
+<div ngClass="product-container">
+
+
+<app-product-item *ngFor="let product of productList" [product]="product" ngClass=" product-container product-index" (showItem)="showDetail($event)"></app-product-item>
+
+
+</div>
+

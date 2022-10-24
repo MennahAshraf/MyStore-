@@ -1,0 +1,42 @@
+<ul ngClass="product-container">
+  <img
+    src="{{ product.url }}"
+    alt="{{ product.description }}"
+    ngClass="product-image"
+    (click)="productPreview(product)"
+    routerLink="/detail"
+  />
+
+  <li>{{ product.name }}</li>
+  <li>{{ product.price }}</li>
+  <form (ngSubmit)="onsubmit(product, amount)" >
+    <select
+     *ngIf="_router.url != '/cart'"
+      name="{{ product.name }}"
+      id="{{ product.id }}"
+      ngClass="select-input"
+      [(ngModel)]="amount"
+      
+      
+    >
+      <option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" value="{{i}}" name="1">{{i}}</option>
+      
+    </select>
+
+    <input
+      *ngIf="_router.url != '/' &&  _router.url != '/detail'"
+      id="{{product.id}}"
+      min="0"
+      max="10"
+      name="{{product.name}}"
+      value="1"
+      type="number"
+      [(ngModel)]="amount"
+      (click)="calculateCost()"
+        
+    />
+    <br /><br />
+    <input type="submit" value="Add to cart" *ngIf="_router.url != '/cart'"/>
+  </form>
+
+</ul>
