@@ -77,4 +77,8 @@ export class FetchDataService {
     }
 
   }
+
+  resetCart(){
+    this.cart=[]
+  }
 }

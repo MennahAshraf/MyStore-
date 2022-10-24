@@ -87,7 +87,7 @@ onsubmit(){
     totalCost: this.totalCost
   }
   this.fetchdata.setConfermation(conf)
-  console.log(this.fetchdata.confOrder)
+  this.fetchdata.resetCart()
 }
 
 
