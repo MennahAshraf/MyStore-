@@ -9,7 +9,8 @@ const routes: Routes = [
   {path:'',component:ProductListComponent},
   {path:'cart',component:CartComponent},
   {path:'detail',component:ProductItemDetailComponent},
-  {path:'conf',component:ConfirmationComponent}
+  {path:'conf',component:ConfirmationComponent},
+  {path: '**', redirectTo: '/'}
   
 ];
 

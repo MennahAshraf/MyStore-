@@ -12,6 +12,7 @@ import { ProductItemDetailComponent } from './product-item-detail/product-item-d
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

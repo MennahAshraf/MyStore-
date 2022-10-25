@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
+# my store description 
+
+My store is an app for shoping , it offers a products , you can pay or add to your cart.
+my app calculate your items in cart before you make your order 
+you can delete from your cart by down numbers to 0 and see deleting message 
+# app structure and components
+
+   - product-list component to preview  product items in my store 
+   - cart component to preview products added to cart 
+   - product-item-detail to previewcustom item in detail
+   - product-item component is used for preview products either in product list or cart or as product detail 
+   - confirmation-component to to preview confirm of order to customer 
+   - nav-bar-component is a navigation of my store 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

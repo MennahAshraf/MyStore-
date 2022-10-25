@@ -1,4 +1,4 @@
-
+<div>
 
 <app-nav-bar></app-nav-bar>
 <app-product-item *ngFor="let cartitem of cartItems" [product]="cartitem" [amount]="cartitem.amount" (showItem)="showDetail($event)" (change)="setTotal($event)" (cartProd)="setcardProd($event)">
@@ -6,27 +6,58 @@
 </app-product-item>
 
 <h1 *ngIf="cartItems.length>0">Total Cost is : {{totalCost}} </h1> 
-<form *ngIf="cartItems.length>0" >
+<form #form="ngForm" *ngIf="cartItems.length>0" >
     <label>Enter Your Name</label>
     <br>
-    <input type="text" minlength="3" [(ngModel)]="Name" [ngModelOptions]="{standalone: true}">
+    <input  #credName="ngModel" type="text" required minlength="3" maxlength="25" name="Name" [(ngModel)]="Name">
     <br>
+    <div *ngIf="credName.invalid && credName.dirty">
+      <div *ngIf="credName.errors?.['required']">
+        Please provide your Name to complete Order.
+      </div>
+      <div *ngIf="credName.errors?.['minlength']">
+        The Name must contain at least 3 characters.
+      </div>
+    </div>
     <br>
     <label>Enter Your Address</label>
     <br>
-    <input type="text" minlength="3"  [(ngModel)]="Address" [ngModelOptions]="{standalone: true}">
+    <input type="text" required minlength="3" maxlength="40" name="Address" [(ngModel)]="Address" #credAdd="ngModel" >
     <br>
+    <div *ngIf="credAdd.invalid && credAdd.dirty">
+      <div *ngIf="credAdd.errors?.['required']">
+        Please provide your Address to complete Order.
+      </div>
+      <div *ngIf="credAdd.errors?.['minlength']">
+        The Address must contain at least 3 characters.
+      </div>
+    </div>
     <br>
     <label>Enter Your Credit Card Number</label>
     <br>
+    <input  type="text" pattern="[0-9]+" required minlength="16" maxlength="19" name="cardNumber" [(ngModel)]="cardNumber" #credCardNum="ngModel">
+    <br>
+    <div *ngIf="credCardNum.invalid && credCardNum.dirty">
+      <div *ngIf="credCardNum.errors?.['required']">
+        Please provide your creditcard number to complete Order.
+      </div>
+      <div *ngIf="credCardNum.errors?.['minlength']">
+        The creditcard must be numeric and contain 16 digits at least
+      </div>
+    </div>
+    <br>
     
-    <input  type="tel" [(ngModel)]="cardNumber" [ngModelOptions]="{standalone: true}" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
-    <br>
-    <br>
-    <input type="submit" routerLink="/conf" (click)="onsubmit()">
+    <input type="submit" routerLink="/conf" [disabled]="form.invalid" (click)="onsubmit()">
+
+    
+    
 
 </form>
-<div class="quantity">
+
+
+</div>
+
+
     
 
 
