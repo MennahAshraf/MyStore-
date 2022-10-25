@@ -15,6 +15,9 @@ you can delete from your cart by down numbers to 0 and see deleting message
    - product-item component is used for preview products either in product list or cart or as product detail 
    - confirmation-component to to preview confirm of order to customer 
    - nav-bar-component is a navigation of my store 
+# Validation
+
+my app support form validation 
 
 ## Development server
 
